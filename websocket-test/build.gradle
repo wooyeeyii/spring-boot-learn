@@ -1,0 +1,10 @@
+
+
+archivesBaseName = 'websocket-test'
+
+//各种依赖的jar包
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-websocket')
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-starter-thymeleaf"
+}

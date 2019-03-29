@@ -1,0 +1,11 @@
+
+archivesBaseName = 'common'
+
+//各种依赖的jar包
+dependencies {
+    // 依赖项
+    //compile project(':XXX')
+    //spring boot
+
+    compile "org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}"
+}

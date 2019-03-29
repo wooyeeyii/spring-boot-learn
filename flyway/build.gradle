@@ -1,0 +1,22 @@
+
+archivesBaseName = 'flyway'
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.0")
+    compile("mysql:mysql-connector-java:6.0.6")
+
+    compile "org.flywaydb:flyway-core:5.2.1"
+}
+
+//task migrateDatabase1(type: org.flywaydb.gradle.task.FlywayMigrateTask) {
+//    url = 'jdbc:mysql://localhost:3307/test'
+//    user = 'root'
+//    password = '123456'
+//}
+//
+//task migrateDatabase2(type: org.flywaydb.gradle.task.FlywayMigrateTask) {
+//    url = 'jdbc:mysql://localhost:3307/test2'
+//    user = 'root'
+//    password = '123456'
+//}

@@ -1,0 +1,19 @@
+
+archivesBaseName = 'spring-boot-redis'
+
+//各种依赖的jar包
+dependencies {
+    // 依赖项
+    compile project(':common')
+    //spring boot
+    compile "org.springframework.boot:spring-boot-starter-web:${springBootVersion}"
+    testCompile "org.springframework.boot:spring-boot-starter-test:${springBootVersion}"
+
+    compile("org.projectlombok:lombok:1.16.10")
+
+    compile("org.springframework.boot:spring-boot-starter-data-redis:${springBootVersion}")
+    compile("org.apache.commons:commons-pool2:2.6.0")
+    // session共享
+    compile("org.springframework.session:spring-session-data-redis:${springBootVersion}")
+
+}

@@ -13,4 +13,7 @@ dependencies {
     compile("mysql:mysql-connector-java:6.0.6")
 
     compile "org.flywaydb:flyway-core:5.2.1"
+
+    compile "org.springframework.boot:spring-boot-starter-data-mongodb"
+
 }

@@ -6,6 +6,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @PropertySource("classpath:${environment.value}/mybatis-config.properties")
+@PropertySource("classpath:${environment.value}/mongodb-config.properties")
 @PropertySource("classpath:${environment.value}/flyway-config.properties")
 @PropertySource("classpath:${environment.value}/dev.yml")
 public class LoadProperties {

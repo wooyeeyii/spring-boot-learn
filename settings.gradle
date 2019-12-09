@@ -3,3 +3,5 @@ rootProject.name = 'spring-boot-learn'
 include "common", "spring-boot-web", "spring-boot-redis", "spring-boot-mybatis"
 include "flyway"
 include "websocket-test"
+include "reflect"
+include "version-control"

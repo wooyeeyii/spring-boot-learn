@@ -1,0 +1,15 @@
+self:
+  bean:
+    props:
+      users:
+        chang:
+          name: chang
+          sex: nan
+        zhang:
+          name: zhangguolao
+          sex: nan
+        he:
+          name: hezhongxin
+          sex: nv
+
+

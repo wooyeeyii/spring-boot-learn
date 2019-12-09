@@ -1,0 +1,15 @@
+
+archivesBaseName = 'reflect'
+
+idea {
+    module {
+        downloadSources = true
+    }
+}
+
+//各种依赖的jar包
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-web"
+
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+}

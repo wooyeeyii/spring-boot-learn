@@ -20,9 +20,9 @@ public class PersonMapperTest {
 
     @Test
     public void testInsert() throws Exception {
-        personMapper.insert(new Person("aa", "a123456", UserSexEnum.MAN));
-        personMapper.insert(new Person("bb", "b123456", UserSexEnum.WOMAN));
-        personMapper.insert(new Person("cc", "b123456", UserSexEnum.WOMAN));
+        personMapper.insert(new Person(null, "aa", "a123456", UserSexEnum.MAN, ""));
+        personMapper.insert(new Person(null, "bb", "b123456", UserSexEnum.WOMAN, ""));
+        personMapper.insert(new Person(null, "cc", "b123456", UserSexEnum.WOMAN, ""));
 
         Assert.assertEquals(3, personMapper.getAll().size());
     }

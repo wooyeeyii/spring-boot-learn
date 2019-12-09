@@ -60,7 +60,8 @@ subprojects {
 //        compileOnly libs['lombok']
 //        testAnnotationProcessor libs['lombok']
 //        testCompileOnly libs['lombok']
-        compile("org.projectlombok:lombok:1.16.10")
+        compile("org.projectlombok:lombok:1.18.8")
+        annotationProcessor 'org.projectlombok:lombok:1.18.8'
 //
         implementation("org.springframework.boot:spring-boot-starter")
 

@@ -1,0 +1,22 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: nacos-demo
+
+nacos:
+  config:
+    server-addr: 127.0.0.1:8848
+  discovery:
+    server-addr: 127.0.0.1:8848
+
+# endpoint http://localhost:8080/actuator/nacos-config
+# health http://localhost:8080/actuator/health
+management:
+  endpoints:
+    web:
+      exposure:
+        include: /*
+    health:
+      show-details: always

@@ -22,13 +22,13 @@ public class PersonController {
 
     @RequestMapping("/test1/getPersons")
     public List<Person> getPersonsFromSource1() {
-        List<Person> Persons=mapper1.getAll();
+        List<Person> Persons = mapper1.getAll();
         return Persons;
     }
 
     @RequestMapping("/test2/getPersons")
     public List<Person> getPersonsFromSource2() {
-        List<Person> Persons=mapper2.getAll();
+        List<Person> Persons = mapper2.getAll();
         return Persons;
     }
 

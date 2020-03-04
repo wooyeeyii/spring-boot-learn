@@ -20,8 +20,8 @@ public class MongoTestController {
 
     @RequestMapping("/get")
     public List<Person> getPersons() {
-        Query query=new Query(Criteria.where("nickName").is("dong"));
-        List<Person> persons =  mongotemplate.find(query , Person.class);
+        Query query = new Query(Criteria.where("nickName").is("dong"));
+        List<Person> persons = mongotemplate.find(query, Person.class);
         return persons;
     }
 

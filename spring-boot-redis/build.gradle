@@ -1,4 +1,3 @@
-
 archivesBaseName = 'spring-boot-redis'
 
 //各种依赖的jar包

@@ -19,9 +19,9 @@ public class HQAuthorizationInterceptor extends HandlerInterceptorAdapter {
             return true;
         } else {
             request.setAttribute("REQ_START_TIME", System.currentTimeMillis());
-            HandlerMethod handlerMethod = (HandlerMethod)handler;
+            HandlerMethod handlerMethod = (HandlerMethod) handler;
             Method method = handlerMethod.getMethod();
-            HQAuthorization annotation = (HQAuthorization)method.getAnnotation(HQAuthorization.class);
+            HQAuthorization annotation = (HQAuthorization) method.getAnnotation(HQAuthorization.class);
             if (annotation != null) {
                 System.out.println("request include HQAuthorization");
             }
@@ -35,7 +35,7 @@ public class HQAuthorizationInterceptor extends HandlerInterceptorAdapter {
     }
 
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        Long startTime = (Long)request.getAttribute("REQ_START_TIME");
+        Long startTime = (Long) request.getAttribute("REQ_START_TIME");
         if (startTime != null) {
             System.out.println("request spend " + (System.currentTimeMillis() - startTime) + " millis");
         }

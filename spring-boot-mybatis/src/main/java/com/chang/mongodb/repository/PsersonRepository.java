@@ -8,5 +8,4 @@ import org.springframework.stereotype.Repository;
 public interface PsersonRepository extends MongoRepository<Person, String> {
 
 
-
 }

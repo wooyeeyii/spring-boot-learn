@@ -22,10 +22,10 @@ public class InternationalizationSerializer extends StdScalarSerializer<Object> 
 
     @Override
     public void serialize(Object value, JsonGenerator gen, SerializerProvider provider) throws IOException {
-        if(value instanceof String) {
+        if (value instanceof String) {
             String msg = messageSource.getMessage((String) value, null, (String) value, LocaleContextHolder.getLocale());
             gen.writeString(msg);
-        } else if(value instanceof Enum) {
+        } else if (value instanceof Enum) {
             String key = value.getClass().getSimpleName() + "." + ((Enum) value).name();
             String msg = messageSource.getMessage(key, null, key, LocaleContextHolder.getLocale());
             gen.writeString(msg);

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 //@Controller
 @RequestMapping("${server.error.path:${error.path:/error}}")
-public class DefaultErrorController extends AbstractErrorController  {
+public class DefaultErrorController extends AbstractErrorController {
 
 
     public DefaultErrorController(ErrorAttributes errorAttributes) {

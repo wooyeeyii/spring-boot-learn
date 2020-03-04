@@ -1,8 +1,7 @@
-
 archivesBaseName = 'common'
 
 // gradle build 打包需要
-jar.enabled=true
+jar.enabled = true
 
 //各种依赖的jar包
 dependencies {

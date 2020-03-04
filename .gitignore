@@ -1,4 +1,7 @@
 .gradle
+gradle
+gradlew
+gradlew.bat
 /build/
 !gradle/wrapper/gradle-wrapper.jar
 
@@ -27,3 +30,5 @@
 
 ### VS Code ###
 .vscode/
+**/.DS_Store
+

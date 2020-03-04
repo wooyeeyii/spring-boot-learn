@@ -6,7 +6,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 
 import java.lang.reflect.Method;
 
-public class ApiVersionRequestMappingHandlerMapping  extends RequestMappingHandlerMapping {
+public class ApiVersionRequestMappingHandlerMapping extends RequestMappingHandlerMapping {
 
     @Override
     protected RequestCondition<ApiVersionCondition> getCustomTypeCondition(Class<?> handlerType) {

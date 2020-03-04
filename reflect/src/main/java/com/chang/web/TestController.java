@@ -17,8 +17,8 @@ public class TestController {
 
     @RequestMapping(value = "/user/info/{name}", method = RequestMethod.GET)
     public String getUserInfo(@PathVariable String name) {
-        for(UserService service : userServices) {
-            if(service.getUserName().contains(name)) {
+        for (UserService service : userServices) {
+            if (service.getUserName().contains(name)) {
                 return service.getUserInfo();
             }
         }

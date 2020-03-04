@@ -26,7 +26,7 @@ public class HttpBreakpointResumeController {
     @RequestMapping(value = "/download", method = RequestMethod.GET, produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
     public void files(HttpServletRequest request, HttpServletResponse response) {
         String range = request.getHeader("Range");
-        if(StringUtils.isEmpty(range)) {
+        if (StringUtils.isEmpty(range)) {
             passSegment(response, 0L);
         } else {
             passSegment(response, breakpoint);
@@ -49,7 +49,7 @@ public class HttpBreakpointResumeController {
             while ((n = randomFile.read(buff)) != -1) {
                 outputStream.write(buff, 0, n);
                 readTotal += n;
-                if(readTotal > limit) {
+                if (readTotal > limit) {
                     breakpoint = readTotal;
                     System.out.println("readTotal: " + breakpoint);
                     break;

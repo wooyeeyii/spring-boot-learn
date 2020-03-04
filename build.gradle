@@ -56,10 +56,6 @@ subprojects {
 
     // All sub-modules add the following dependencies
     dependencies {
-//        annotationProcessor libs['lombok']
-//        compileOnly libs['lombok']
-//        testAnnotationProcessor libs['lombok']
-//        testCompileOnly libs['lombok']
         compile("org.projectlombok:lombok:1.18.8")
         annotationProcessor 'org.projectlombok:lombok:1.18.8'
 //
@@ -68,7 +64,6 @@ subprojects {
         // 测试依赖
         testCompile "org.springframework.boot:spring-boot-starter-test"
         testCompile("junit:junit:${junitVersion}")
-//        testImplementation libs['junit']
     }
 }
 

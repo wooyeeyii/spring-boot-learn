@@ -1,8 +1,5 @@
 .gradle
-gradle
-gradlew
-gradlew.bat
-/build/
+**/build/
 !gradle/wrapper/gradle-wrapper.jar
 
 ### STS ###

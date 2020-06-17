@@ -2,15 +2,15 @@ archivesBaseName = 'spring-boot-mybatis'
 
 //各种依赖的jar包
 dependencies {
-    // 依赖项
-    compile project(':common')
-    //spring boot
-    compile "org.springframework.boot:spring-boot-starter-web"
-    compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.0")
-    compile("mysql:mysql-connector-java:6.0.6")
 
-    compile "org.flywaydb:flyway-core:5.2.1"
+    api project(':common')
 
-    compile "org.springframework.boot:spring-boot-starter-data-mongodb"
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.boot:spring-boot-starter-data-mongodb"
+    implementation "org.springframework.boot:spring-boot-starter-data-jdbc"
+
+    implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter"
+    implementation "mysql:mysql-connector-java"
+    implementation "org.flywaydb:flyway-core"
 
 }

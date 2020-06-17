@@ -1,11 +1,11 @@
 archivesBaseName = 'flyway'
 
 dependencies {
-    compile "org.springframework.boot:spring-boot-starter-web"
-    compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.0")
-    compile("mysql:mysql-connector-java:6.0.6")
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.0"
 
-    compile "org.flywaydb:flyway-core:5.2.1"
+    implementation("mysql:mysql-connector-java:6.0.6")
+    implementation "org.flywaydb:flyway-core:5.2.1"
 }
 
 //task migrateDatabase1(type: org.flywaydb.gradle.task.FlywayMigrateTask) {

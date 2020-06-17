@@ -26,5 +26,10 @@ CREATE TABLE `users` (
   `user_sex` varchar(32) DEFAULT NULL,
   `nick_name` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `test`.`users`(`id`, `userName`, `passWord`, `user_sex`, `nick_name`) VALUES
+(0, 'lin', 'dongdong', 'MAN', 'dong'),
+(0, 'peng', 'yangyang', 'MAN', 'hai'),
+(0, 'liu', 'fangfang', 'WOMAN', 'fang');
 

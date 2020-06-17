@@ -1,2 +1,8 @@
 # 自定义变量
-environment.value=dev
+spring:
+  datasource:
+    host: 127.0.0.1
+    port: 3306
+
+test:
+  content: neirong

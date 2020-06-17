@@ -1,103 +1,64 @@
 package com.chang.server;
 
-import java.io.IOException;
-import java.util.concurrent.CopyOnWriteArraySet;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import javax.websocket.OnClose;
-import javax.websocket.OnError;
-import javax.websocket.OnMessage;
-import javax.websocket.OnOpen;
-import javax.websocket.Session;
-import javax.websocket.server.ServerEndpoint;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
+import javax.websocket.*;
+import javax.websocket.server.ServerEndpoint;
+import java.io.IOException;
+import java.util.concurrent.CopyOnWriteArraySet;
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * WebSocket服务端示例
  */
+@Slf4j
 @ServerEndpoint(value = "/ws/asset")
 @Component
 public class WebSocketServer {
 
-    private static Logger log = LoggerFactory.getLogger(WebSocketServer.class);
-
     private static final AtomicInteger OnlineCount = new AtomicInteger(0);
-    // concurrent包的线程安全Set，用来存放每个客户端对应的Session对象。
-    private static CopyOnWriteArraySet<Session> SessionSet = new CopyOnWriteArraySet<Session>();
 
-    /**
-     * 连接建立成功调用的方法
-     */
+    private static CopyOnWriteArraySet<Session> SessionSet = new CopyOnWriteArraySet<>();
+
     @OnOpen
     public void onOpen(Session session) {
         SessionSet.add(session);
         int cnt = OnlineCount.incrementAndGet(); // 在线数加1
-        log.info("有连接加入，当前连接数为：{}", cnt);
-        SendMessage(session, "连接成功");
+        log.info("new connection joined，current connection count = {}", cnt);
+        SendMessage(session, "connection success! ");
     }
 
-    /**
-     * 连接关闭调用的方法
-     */
     @OnClose
     public void onClose(Session session) {
         SessionSet.remove(session);
         int cnt = OnlineCount.decrementAndGet();
-        log.info("有连接关闭，当前连接数为：{}", cnt);
+        log.info("connection closed，current connection count = {}", cnt);
     }
 
-    /**
-     * 收到客户端消息后调用的方法
-     *
-     * @param message 客户端发送过来的消息
-     */
     @OnMessage
     public void onMessage(String message, Session session) {
-        log.info("来自客户端的消息：{}", message);
-        SendMessage(session, "收到消息，消息内容：" + message);
-
+        log.info("receive message from client, msg = {}", message);
+        SendMessage(session, "message received，msg = {}" + message);
     }
 
-    /**
-     * 出现错误
-     *
-     * @param session
-     * @param error
-     */
     @OnError
     public void onError(Session session, Throwable error) {
-        log.error("发生错误：{}，Session ID： {}", error.getMessage(), session.getId());
-        error.printStackTrace();
+        log.error("error occurred. errMsg = {}, sessionId = {}", error.getMessage(), session.getId(), error);
     }
 
-    /**
-     * 发送消息，实践表明，每次浏览器刷新，session会发生变化。
-     *
-     * @param session
-     * @param message
-     */
     public static void SendMessage(Session session, String message) {
         try {
             session.getBasicRemote().sendText(String
-                    .format("%s (From Server，Session ID=%s)", message, session.getId()));
-        } catch (IOException e) {
-            log.error("发送消息出错：{}", e.getMessage());
-            e.printStackTrace();
+                    .format("%s (From Server，Session ID = %s)", message, session.getId()));
+        } catch (IOException ex) {
+            log.error("send message failed.", ex);
         }
     }
 
-    /**
-     * 群发消息
-     *
-     * @param message
-     * @throws IOException
-     */
-    public static void BroadCastInfo(String message) throws IOException {
+    public static void BroadCastInfo(String message) {
         for (Session session : SessionSet) {
             if (session.isOpen()) {
                 SendMessage(session, message);
@@ -105,14 +66,7 @@ public class WebSocketServer {
         }
     }
 
-    /**
-     * 指定Session发送消息
-     *
-     * @param sessionId
-     * @param message
-     * @throws IOException
-     */
-    public static void SendMessage(String sessionId, String message) throws IOException {
+    public static void SendMessage(String sessionId, String message) {
         Session session = null;
         for (Session s : SessionSet) {
             if (s.getId().equals(sessionId)) {
@@ -123,7 +77,7 @@ public class WebSocketServer {
         if (session != null) {
             SendMessage(session, message);
         } else {
-            log.warn("没有找到你指定ID的会话：{}", sessionId);
+            log.warn("sessionId is not fount. sessionId = {}", sessionId);
         }
     }
 

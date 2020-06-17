@@ -1,8 +1,11 @@
 package com.chang.service.user;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+@Slf4j
 public class UserService {
 
     private BeanProperties.User user;
@@ -24,12 +27,8 @@ public class UserService {
         try {
             Method m = handler.getClass().getMethod(methodName);
             m.invoke(handler);
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException ex) {
+            log.error("", ex);
         }
     }
 

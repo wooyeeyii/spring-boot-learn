@@ -15,10 +15,9 @@ public class WebMvcRegistrationsConfig extends WebMvcConfigurationSupport {
     private HQAuthorizationInterceptor authorizationInterceptor;
 
     @Override
-    public RequestMappingHandlerMapping requestMappingHandlerMapping() {
+    public RequestMappingHandlerMapping createRequestMappingHandlerMapping() {
         RequestMappingHandlerMapping handlerMapping = new ApiVersionRequestMappingHandlerMapping();
         handlerMapping.setOrder(50);
-        handlerMapping.setInterceptors(getInterceptors());
         return handlerMapping;
     }
 

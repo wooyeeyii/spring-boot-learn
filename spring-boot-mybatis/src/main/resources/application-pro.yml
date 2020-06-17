@@ -1,2 +1,6 @@
 # 自定义变量
-environment.value=pro
+
+
+
+test:
+  content: neirong_pro

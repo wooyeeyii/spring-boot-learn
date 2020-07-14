@@ -7,7 +7,7 @@ public class Person implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
     private String userName;
-    private String passWord;
+    private String password;
     private UserSexEnum userSex;
     private String nickName;
 
@@ -15,9 +15,9 @@ public class Person implements Serializable {
         super();
     }
 
-    public Person(String userName, String passWord, UserSexEnum userSex) {
+    public Person(String userName, String password, UserSexEnum userSex) {
         super();
-        this.passWord = passWord;
+        this.password = password;
         this.userName = userName;
         this.userSex = userSex;
     }
@@ -39,11 +39,11 @@ public class Person implements Serializable {
     }
 
     public String getPassWord() {
-        return passWord;
+        return password;
     }
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
+    public void setPassWord(String password) {
+        this.password = password;
     }
 
     public UserSexEnum getUserSex() {
@@ -65,7 +65,7 @@ public class Person implements Serializable {
     @Override
     public String toString() {
         // TODO Auto-generated method stub
-        return "userName " + this.userName + ", pasword " + this.passWord + "sex " + userSex.name();
+        return "userName " + this.userName + ", pasword " + this.password + "sex " + userSex.name();
     }
 
 }

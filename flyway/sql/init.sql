@@ -7,7 +7,7 @@ IF
 CREATE TABLE `users` (
 `id` BIGINT ( 20 ) NOT NULL AUTO_INCREMENT COMMENT '主键id',
 `userName` VARCHAR ( 32 ) DEFAULT NULL COMMENT '用户名',
-`passWord` VARCHAR ( 32 ) DEFAULT NULL COMMENT '密码',
+`password` VARCHAR ( 32 ) DEFAULT NULL COMMENT '密码',
 `user_sex` VARCHAR ( 32 ) DEFAULT NULL,
 `nick_name` VARCHAR ( 32 ) DEFAULT NULL,
 PRIMARY KEY ( `id` )
@@ -20,7 +20,7 @@ ues test2;
 CREATE TABLE `users` (
 `id` BIGINT ( 20 ) NOT NULL AUTO_INCREMENT COMMENT '主键id',
 `userName` VARCHAR ( 32 ) DEFAULT NULL COMMENT '用户名',
-`passWord` VARCHAR ( 32 ) DEFAULT NULL COMMENT '密码',
+`password` VARCHAR ( 32 ) DEFAULT NULL COMMENT '密码',
 `user_sex` VARCHAR ( 32 ) DEFAULT NULL,
 `nick_name` VARCHAR ( 32 ) DEFAULT NULL,
 PRIMARY KEY ( `id` )

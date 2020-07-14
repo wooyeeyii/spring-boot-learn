@@ -30,7 +30,7 @@ public class MongoTestController {
         Person person = Person.builder()
                 .id(1L)
                 .nickName("dong")
-                .passWord("yu")
+                .password("yu")
                 .userName("lin")
                 .userSex(UserSexEnum.MAN)
                 .build();
@@ -39,7 +39,7 @@ public class MongoTestController {
         Person person2 = Person.builder()
                 .id(2L)
                 .nickName("dong")
-                .passWord("yuu")
+                .password("yuu")
                 .userName("linnnnnn")
                 .userSex(UserSexEnum.MAN)
                 .build();

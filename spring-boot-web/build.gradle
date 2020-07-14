@@ -1,14 +1,14 @@
-archivesBaseName = 'spring-boot-web'
 
-//各种依赖的jar包
 dependencies {
     // 依赖项
     api project(':common')
     //spring boot
-    compile "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.cloud:spring-cloud-starter-openfeign"
+    implementation "org.springframework.boot:spring-boot-starter-actuator"
 
-    compile "org.springframework.boot:spring-boot-starter-thymeleaf"
+    implementation "org.springframework.boot:spring-boot-starter-thymeleaf"
 
-    compile "org.springframework.boot:spring-boot-starter-data-jpa"
-    compile("mysql:mysql-connector-java:6.0.6")
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+    implementation 'mysql:mysql-connector-java'
 }

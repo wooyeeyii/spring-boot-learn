@@ -1,13 +1,12 @@
-archivesBaseName = 'nacos-demo'
 
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-web')
-    compile('org.springframework.boot:spring-boot-starter-actuator')
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.boot:spring-boot-starter-actuator')
 
     // 启动服务发现
-    compile('com.alibaba.boot:nacos-discovery-spring-boot-starter:0.2.1')
+    implementation('com.alibaba.boot:nacos-discovery-spring-boot-starter:0.2.1')
 
     // 使用nacos配置参数
-    compile('com.alibaba.boot:nacos-config-spring-boot-starter:0.2.3')
-    compile('com.alibaba.boot:nacos-config-spring-boot-actuator:0.2.3')
+    implementation('com.alibaba.boot:nacos-config-spring-boot-starter:0.2.3')
+    implementation('com.alibaba.boot:nacos-config-spring-boot-actuator:0.2.3')
 }

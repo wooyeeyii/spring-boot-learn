@@ -1,10 +1,7 @@
-archivesBaseName = 'version-control'
-
-//各种依赖的jar包
 dependencies {
-    //spring boot
-    compile "org.springframework.boot:spring-boot-starter-web"
-    compile "org.springframework.boot:spring-boot-starter-aop"
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.boot:spring-boot-starter-aop"
+    implementation "org.springframework.boot:spring-boot-starter-actuator"
 
-    compile "org.apache.commons:commons-lang3:3.8.1"
+    implementation "org.apache.commons:commons-lang3"
 }

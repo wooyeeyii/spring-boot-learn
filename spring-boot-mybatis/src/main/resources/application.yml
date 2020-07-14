@@ -27,7 +27,6 @@ spring:
     ignore-failed-future-migration: true
 
 mybatis:
-  config-location: classpath:mybatis/mybatis-config.xml
   mapper-locations: classpath:mybatis/mapper/*.xml
 
 

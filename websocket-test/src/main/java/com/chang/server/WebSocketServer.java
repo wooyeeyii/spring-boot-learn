@@ -51,8 +51,7 @@ public class WebSocketServer {
 
     public static void SendMessage(Session session, String message) {
         try {
-            session.getBasicRemote().sendText(String
-                    .format("%s (From Server，Session ID = %s)", message, session.getId()));
+            session.getBasicRemote().sendText(message);
         } catch (IOException ex) {
             log.error("send message failed.", ex);
         }

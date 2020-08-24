@@ -13,6 +13,7 @@ buildscript {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath "io.spring.gradle:dependency-management-plugin:1.0.7.RELEASE"
         classpath('io.franzbecker:gradle-lombok:4.0.0')
+        classpath "gradle.plugin.com.google.cloud.tools:jib-gradle-plugin:2.4.0"
     }
 }
 
@@ -38,20 +39,30 @@ allprojects {
 
     repositories {
         mavenLocal()
-        mavenCentral()
         maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
         maven { url "http://repo.spring.io/snapshot" }
         maven { url "http://repo.spring.io/milestone" }
         maven { url 'http://maven.springframework.org/release' }
         maven { url 'http://maven.springframework.org/milestone' }
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        mavenCentral()
         jcenter()
+        google()
     }
 
     dependencies {
         compileOnly("org.projectlombok:lombok:1.18.8")
         annotationProcessor 'org.projectlombok:lombok:1.18.8'
+    }
 
-        testCompile "org.springframework.boot:spring-boot-starter-test"
+    configurations.all {
+        resolutionStrategy {
+            eachDependency { DependencyResolveDetails details ->
+                if (details.requested.group == 'org.codehaus.groovy') {
+                    details.useVersion('3.0.5')
+                }
+            }
+        }
     }
 
 }

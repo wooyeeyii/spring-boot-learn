@@ -1,0 +1,8 @@
+dependencies {
+//    implementation "com.netflix.conductor:conductor-core:2.28.1"
+    implementation "com.netflix.conductor:conductor-client:2.28.1"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api"
+    testImplementation "org.junit.jupiter:junit-jupiter-params"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine"
+}

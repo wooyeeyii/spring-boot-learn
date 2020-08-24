@@ -1,4 +1,6 @@
 ext['spring-cloud.version'] = 'Hoxton.SR3'
+ext['junitJupiterVersion'] = '5.4.2'
+ext['testContainersVersion'] = '1.14.3'
 
 ext {
     gradleScriptDir = "${rootProject.projectDir}/gradle"
@@ -11,6 +13,12 @@ dependencyManagement {
         dependency "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.0"
         dependency "org.flywaydb:flyway-core:5.2.1"
         dependency "org.apache.commons:commons-lang3:3.10"
+        dependency "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"
+        dependency "org.junit.jupiter:junit-jupiter-params:${junitJupiterVersion}"
+        dependency "org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}"
+        dependency "org.testcontainers:testcontainers:${testContainersVersion}"
+        dependency "org.testcontainers:junit-jupiter:${testContainersVersion}"
+        dependency "org.testcontainers:mysql:${testContainersVersion}"
     }
 
     imports {

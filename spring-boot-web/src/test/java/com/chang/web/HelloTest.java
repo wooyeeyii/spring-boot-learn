@@ -1,6 +1,5 @@
 package com.chang.web;
 
-import com.chang.web.HelloWorldController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

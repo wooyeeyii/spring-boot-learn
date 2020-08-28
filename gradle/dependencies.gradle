@@ -19,10 +19,12 @@ dependencyManagement {
         dependency "org.testcontainers:testcontainers:${testContainersVersion}"
         dependency "org.testcontainers:junit-jupiter:${testContainersVersion}"
         dependency "org.testcontainers:mysql:${testContainersVersion}"
+        dependency "org.testcontainers:spock:${testContainersVersion}"
     }
 
     imports {
         mavenBom "org.springframework.boot:spring-boot-dependencies:${springBootVersion}"
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${project.'spring-cloud.version'}"
+        mavenBom "org.spockframework:spock-bom:2.0-M1-groovy-2.5"
     }
 }

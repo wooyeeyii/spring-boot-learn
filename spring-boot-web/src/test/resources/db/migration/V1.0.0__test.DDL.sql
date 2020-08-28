@@ -9,3 +9,7 @@ CREATE TABLE `user` (
   `reg_time` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- INSERT INTO `user` (id, user_name, password, email, nick_name, reg_time) VALUES
+-- (100, "jun", "jun", "jun@163.com", "j", "2020-08-24 00:00:00"),
+-- (200, "jie", "jie", "jie@163.com", "j", "2020-08-24 10:10:10");

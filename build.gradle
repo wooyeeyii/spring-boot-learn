@@ -55,15 +55,15 @@ allprojects {
         annotationProcessor 'org.projectlombok:lombok:1.18.8'
     }
 
-    configurations.all {
-        resolutionStrategy {
-            eachDependency { DependencyResolveDetails details ->
-                if (details.requested.group == 'org.codehaus.groovy') {
-                    details.useVersion('3.0.5')
-                }
-            }
-        }
-    }
+//    configurations.all {
+//        resolutionStrategy {
+//            eachDependency { DependencyResolveDetails details ->
+//                if (details.requested.group == 'org.codehaus.groovy') {
+//                    details.useVersion('3.0.5')
+//                }
+//            }
+//        }
+//    }
 
 }
 

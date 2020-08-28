@@ -1,48 +1,37 @@
 package com.chang.repository;
 
+import com.chang.config.TitleProperties;
 import com.chang.model.User;
-import org.flywaydb.core.Flyway;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.DynamicPropertyRegistry;
-import org.springframework.test.context.DynamicPropertySource;
-import org.testcontainers.containers.MySQLContainer;
-import org.testcontainers.junit.jupiter.Container;
-import org.testcontainers.junit.jupiter.Testcontainers;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
+import org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.text.DateFormat;
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-@Testcontainers
-@SpringBootTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-class UserRepositoryTest {
-
-    @Container
-    private static final MySQLContainer database = new MySQLContainer().withDatabaseName("test");
-
-    @DynamicPropertySource
-    static void setMysqlProperty(DynamicPropertyRegistry registry) {
-        registry.add("spring.datasource.url", database::getJdbcUrl);
-        registry.add("spring.datasource.username", database::getUsername);
-        registry.add("spring.datasource.password", database::getPassword);
-    }
+@DataJpaTest
+@ImportAutoConfiguration(exclude = {FlywayAutoConfiguration.class})
+public class UserRepositoryTest {
 
     @Autowired
     private UserRepository userRepository;
 
-    @BeforeAll
-    static void init() {
-        Flyway.configure().dataSource(database.getJdbcUrl(), database.getUsername(), database.getPassword()).load().migrate();
+    @Autowired(required = false)
+    private TitleProperties properties;
+
+    @Test
+    public void properties_should_be_null() {
+        assertNull(properties);
     }
 
     @Test
-    public void test() {
+    public void query_delete_test() {
+        assertNotNull(userRepository);
+
         Date date = new Date();
         DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG);
         String formattedDate = dateFormat.format(date);
@@ -53,7 +42,7 @@ class UserRepositoryTest {
 
 //		Assert.assertEquals(9, userRepository.findAll().size());
         assertEquals("bb123456", userRepository.findByUserNameOrEmail("bb2", "xxx126.com").getNickName());
-        userRepository.delete(userRepository.findByUserName("aa"));
+        userRepository.delete(userRepository.findByUserName("aa1"));
     }
 
 }

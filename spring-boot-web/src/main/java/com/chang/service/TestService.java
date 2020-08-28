@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class TestService {
 
-    public void test() {
+    public int test() {
         System.out.println("TestService method test");
+        return 0;
     }
+
 }

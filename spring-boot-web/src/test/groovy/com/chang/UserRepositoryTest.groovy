@@ -21,8 +21,7 @@ import spock.lang.Specification
 class UserRepositoryTest extends Specification {
 
     @Shared
-    MySQLContainer database = new MySQLContainer<>()
-            .withDatabaseName("test")
+    MySQLContainer database = new MySQLContainer<>().withDatabaseName("test")
 
     def setupSpec() {
         System.setProperty("spring.datasource.url", database.jdbcUrl)
@@ -44,8 +43,10 @@ class UserRepositoryTest extends Specification {
 
     def "insert user should be success"() {
         given:
-        userRepository.save(User.builder().userName("jun").password("pass").email("jun@163.com").regTime("2020-10-10 00:00:00").build())
-        userRepository.save(User.builder().userName("jie").password("pass").email("jie@163.com").regTime("2020-10-10 00:00:00").build())
+        userRepository.save(User.builder().userName("jun").password("pass")
+                .email("jun@163.com").regTime("2020-10-10 00:00:00").build())
+        userRepository.save(User.builder().userName("jie").password("pass")
+                .email("jie@163.com").regTime("2020-10-10 00:00:00").build())
 
         expect:
         userRepository.findByUserName(a).getUserName() == c

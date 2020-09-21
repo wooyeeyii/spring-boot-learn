@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Data
 @Entity
@@ -35,12 +36,16 @@ public class User implements Serializable {
     @Column(nullable = false)
     private String regTime;
 
-    public User(String userName, String password, String email, String nickName, String regTime) {
+//    @Temporal(TemporalType.DATE)
+    private Date createTime;
+
+    public User(String userName, String password, String email, String nickName, String regTime, Date createTime) {
         this.userName = userName;
         this.password = password;
         this.email = email;
         this.nickName = nickName;
         this.regTime = regTime;
+        this.createTime = createTime;
     }
 
 }

@@ -1,11 +1,18 @@
-#spring:
-#  jpa:
-#    properties:
-#      hibernate:
-#        default_schema: DUMMY
-
+spring:
+  datasource:
+    name: hk_coin
+    host: 127.0.0.1
+    port: 3306
+    url: jdbc:mysql://${spring.datasource.host}:${spring.datasource.port}/hk_coin?useUnicode=true&characterEncoding=utf-8&useSSL=false&allowMultiQueries=true
+    username: root
+    password: 123456
 
 com:
   chang:
     title: test
     description: spring boot test
+
+logging:
+  level:
+    org.hibernate.SQL: TRACE
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE

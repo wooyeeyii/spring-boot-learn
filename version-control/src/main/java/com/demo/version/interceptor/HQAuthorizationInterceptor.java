@@ -15,9 +15,7 @@ public class HQAuthorizationInterceptor extends HandlerInterceptorAdapter {
 
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         System.out.println("enter HQAuthorizationInterceptor..");
-        if (!(handler instanceof HandlerMethod)) {
-            return true;
-        } else {
+        if (handler instanceof HandlerMethod) {
             request.setAttribute("REQ_START_TIME", System.currentTimeMillis());
             HandlerMethod handlerMethod = (HandlerMethod) handler;
             Method method = handlerMethod.getMethod();
@@ -26,8 +24,8 @@ public class HQAuthorizationInterceptor extends HandlerInterceptorAdapter {
                 System.out.println("request include HQAuthorization");
             }
 
-            return true;
         }
+        return true;
     }
 
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {

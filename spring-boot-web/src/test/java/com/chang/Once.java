@@ -6,14 +6,16 @@ public class Once {
 
     public static void main(String[] args) {
 
-        java.text.DecimalFormat df = new java.text.DecimalFormat("#0.65");
-        System.out.println(df.format(122220.123456789));
-        System.out.println(df.format(new BigDecimal(122220.123456789)));
-
-
-        BigDecimal b = new BigDecimal(122220.123456789);
-        BigDecimal f1 = b.setScale(-2, BigDecimal.ROUND_FLOOR);
-        System.out.println(f1);
+        String format1 = "_@_%s@-@";
+        String format2 = " _#_%s#-#";
+        String result = "";
+        result += String.format(format1, new BigDecimal("0.0038345830"));
+        result += String.format(format2, "%");
+        result += String.format(format1, "~");
+        BigDecimal big = new BigDecimal("0.393480000");
+        result += String.format(format1, big);
+        result += String.format(format2, "%");
+        System.out.println(result);
     }
 
 }

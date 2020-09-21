@@ -9,6 +9,7 @@ import org.springframework.boot.autoconfigure.ImportAutoConfiguration
 import org.springframework.boot.autoconfigure.flyway.FlywayAutoConfiguration
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
+import org.springframework.test.annotation.Rollback
 import org.testcontainers.containers.MySQLContainer
 import org.testcontainers.spock.Testcontainers
 import spock.lang.Shared
@@ -17,20 +18,9 @@ import spock.lang.Specification
 import java.text.SimpleDateFormat
 
 @DataJpaTest
-@Testcontainers
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @ImportAutoConfiguration(exclude = [FlywayAutoConfiguration])
-class UserRepositoryTest extends Specification {
-
-    @Shared
-    MySQLContainer database = new MySQLContainer<>().withDatabaseName("test")
-
-    def setupSpec() {
-        System.setProperty("spring.datasource.url", database.jdbcUrl)
-        System.setProperty("spring.datasource.username", database.username)
-        System.setProperty("spring.datasource.password", database.password)
-        Flyway.configure().dataSource(database.jdbcUrl, database.username, database.password).load().migrate()
-    }
+class UserRepositoryTestWithLocalMysql extends Specification {
 
     @Autowired
     private UserRepository userRepository;
@@ -43,22 +33,7 @@ class UserRepositoryTest extends Specification {
         null == properties
     }
 
-    def "insert user should be success"() {
-        given:
-        userRepository.save(User.builder().userName("jun").password("pass")
-                .email("jun@163.com").regTime("2020-10-10 00:00:00").createTime(new Date()).build())
-        userRepository.save(User.builder().userName("jie").password("pass")
-                .email("jie@163.com").regTime("2020-10-10 00:00:00").createTime(new Date()).build())
-
-        expect:
-        userRepository.findByUserName(a).getUserName() == c
-
-        where:
-        a     | c
-        "jun" | "jun"
-        "jie" | "jie"
-    }
-
+    @Rollback(false)
     def "jpa native query by date"() {
         given:
         Date date = new Date()

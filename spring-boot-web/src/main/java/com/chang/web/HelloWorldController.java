@@ -1,9 +1,10 @@
 package com.chang.web;
 
+import com.chang.model.User;
 import com.chang.response.CommonResponse;
-import com.chang.response.OrderBsEnum;
 import com.chang.response.Res;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.math.BigDecimal;
@@ -11,12 +12,7 @@ import java.math.BigDecimal;
 @RestController
 public class HelloWorldController {
 
-    @RequestMapping("/hello")
-    public String index() {
-        return "Hello World";
-    }
-
-    @RequestMapping("/intel/hi")
+    @GetMapping("/intel/hi")
     public CommonResponse hi() {
         CommonResponse<Res> rsp = new CommonResponse<>();
         Res res = new Res();

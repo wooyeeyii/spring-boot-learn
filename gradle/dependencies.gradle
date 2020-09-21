@@ -11,6 +11,7 @@ dependencyManagement {
 
     dependencies {
         dependency "org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.0"
+        dependency "org.springdoc:springdoc-openapi-ui:1.4.6"
         dependency "org.flywaydb:flyway-core:5.2.1"
         dependency "org.apache.commons:commons-lang3:3.10"
         dependency "org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}"

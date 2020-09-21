@@ -6,7 +6,7 @@ import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
 
 @Aspect
-@Component
+//@Component
 public class FeignAspect {
 
     @Pointcut(value = "execution(public * com.demo.version.web.*Controller.*(..))")

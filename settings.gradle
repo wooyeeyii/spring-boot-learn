@@ -7,4 +7,5 @@ include "reflect"
 include "version-control"
 include "nacos-demo"
 include 'conductor'
+include 'multi-datasource'
 

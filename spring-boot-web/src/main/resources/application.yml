@@ -14,6 +14,7 @@ com:
   chang:
     title: spring
     description: spring boot learn
+    headers: api-version,version
 
 logging:
   level:

@@ -11,6 +11,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api-version")
 public class HelloController {
 
+    @ApiVersion("0.0.0")
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    @ResponseBody
+    public String helloV0() {
+        return "0.0.0";
+    }
+
     @ApiVersion("1.0.0")
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     @ResponseBody

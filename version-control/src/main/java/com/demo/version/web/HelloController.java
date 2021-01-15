@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api-version")
 public class HelloController {
 
+    @HQAuthorization
     @ApiVersion("0.0.0")
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     @ResponseBody
